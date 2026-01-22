@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClotheMu - Super Deals on Fashion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #e1306c;
+        }
+
+        .header-center {
+            flex: 1;
+            margin: 0 16px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 14px;
+            background: #f5f5f5;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 12px;
+            font-size: 20px;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            transition: transform 0.2s;
+        }
+
+        .icon-btn:active {
+            transform: scale(0.9);
+        }
+
+        /* Top Banner Section */
+        .banner-section {
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #e1306c 0%, #f77737 100%);
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .banner-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .banners {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .banners::-webkit-scrollbar {
+            display: none;
+        }
+
+        .banner-item {
+            flex-shrink: 0;
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            white-space: nowrap;
+            font-size: 12px;
+            border: 1px solid rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .banner-item:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Gamification Section */
+        .gamification {
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .game-card {
+            flex: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+            font-size: 12px;
+        }
+
+        .game-card:active {
+            transform: scale(0.95);
+        }
+
+        .game-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .game-text {
+            font-weight: bold;
+        }
+
+        /* Category Scroll */
+        .categories {
+            padding: 0 16px 16px;
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .categories::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-btn {
+            flex-shrink: 0;
+            padding: 8px 16px;
+            background: #f5f5f5;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .category-btn.active {
+            background: #e1306c;
+            color: white;
+            font-weight: bold;
+        }
+
+        .category-btn:hover {
+            background: #e0e0e0;
+        }
+
+        /* Flash Sale Banner */
+        .flash-sale {
+            margin: 0 16px 16px;
+            padding: 12px 16px;
+            background: linear-gradient(90deg, #ff6b6b 0%, #ffaa00 100%);
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .flash-timer {
+            background: rgba(0,0,0,0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Product Grid */
+        .products-container {
+            padding: 0 8px;
+            margin-bottom: 100px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            padding: 0 8px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .product-card:active {
+            transform: scale(0.98);
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image-emoji {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            background: #ff6b6b;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .sold-out {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+        .product-info {
+            padding: 8px;
+            background: white;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e1306c;
+            margin-bottom: 2px;
+        }
+
+        .original-price {
+            font-size: 11px;
+            color: #999;
+            text-decoration: line-through;
+            margin-bottom: 4px;
+        }
+
+        .product-name {
+            font-size: 12px;
+            color: #333;
+            line-height: 1.4;
+            margin-bottom: 6px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-rating {
+            font-size: 11px;
+            color: #999;
+        }
+
+        .shipping-badge {
+            font-size: 10px;
+            color: #fff;
+            background: #1dc9b7;
+            padding: 2px 4px;
+            border-radius: 2px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        /* Bottom Tab Bar */
+        .tab-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 0;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+            z-index: 99;
+        }
+
+        .tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            font-size: 24px;
+            padding: 8px 16px;
+            transition: color 0.2s;
+        }
+
+        .tab.active {
+            color: #e1306c;
+        }
+
+        .tab-label {
+            font-size: 10px;
+            color: #666;
+        }
+
+        .tab.active .tab-label {
+            color: #e1306c;
+            font-weight: bold;
+        }
+
+        /* Loading Indicator */
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 12px;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #e1306c;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+            margin-right: 4px;
+        }
+
+        .spinner:nth-child(2) {
+            animation-delay: -0.2s;
+        }
+
+        .spinner:nth-child(3) {
+            animation-delay: -0.4s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% { opacity: 0.3; }
+            40% { opacity: 1; }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px 12px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            👗 ClotheMu
+        </div>
+        <div class="header-center">
+            <input type="text" class="search-bar" placeholder="Search clothes...">
+        </div>
+        <div class="header-right">
+            <button class="icon-btn">💬</button>
+            <button class="icon-btn">🛒</button>
+        </div>
+    </header>
+
+    <!-- Flash Sale Banner -->
+    <div class="flash-sale">
+        <span>⚡ FLASH SALE - UP TO 80% OFF</span>
+        <div class="flash-timer" id="timer">23:45:32</div>
+    </div>
+
+    <!-- Gamification Section -->
+    <div class="gamification">
+        <div class="game-card" onclick="alert('Daily bonus claimed! +100 coins')">
+            <div class="game-icon">🎁</div>
+            <div class="game-text">Daily Bonus</div>
+        </div>
+        <div class="game-card" onclick="alert('Spin the wheel!')">
+            <div class="game-icon">🎡</div>
+            <div class="game-text">Spin & Win</div>
+        </div>
+        <div class="game-card" onclick="alert('Complete tasks for rewards!')">
+            <div class="game-icon">✅</div>
+            <div class="game-text">Task Center</div>
+        </div>
+    </div>
+
+    <!-- Top Deals Banner -->
+    <div class="banner-section">
+        <div class="banner-title">🔥 Top Deals</div>
+        <div class="banners">
+            <span class="banner-item">Under $5</span>
+            <span class="banner-item">NEW</span>
+            <span class="banner-item">TRENDING</span>
+            <span class="banner-item">BESTSELLER</span>
+            <span class="banner-item">CLEARANCE</span>
+        </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="categories">
+        <button class="category-btn active" onclick="filterCategory('all')">All</button>
+        <button class="category-btn" onclick="filterCategory('tops')">👕 Tops</button>
+        <button class="category-btn" onclick="filterCategory('dresses')">👗 Dresses</button>
+        <button class="category-btn" onclick="filterCategory('bottoms')">👖 Bottoms</button>
+        <button class="category-btn" onclick="filterCategory('jackets')">🧥 Jackets</button>
+        <button class="category-btn" onclick="filterCategory('shoes')">👠 Shoes</button>
+        <button class="category-btn" onclick="filterCategory('accessories')">👜 Accessories</button>
+    </div>
+
+    <!-- Products Container -->
+    <div class="products-container">
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be loaded here -->
+        </div>
+        <div class="loading" id="loadingIndicator">
+            <div class="spinner"></div>
+            <div class="spinner"></div>
+            <div class="spinner"></div>
+            Loading more...
+        </div>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+        <div class="tab active" onclick="switchTab('home')">
+            <span>🏠</span>
+            <span class="tab-label">Home</span>
+        </div>
+        <div class="tab" onclick="switchTab('explore')">
+            <span>🔍</span>
+            <span class="tab-label">Explore</span>
+        </div>
+        <div class="tab" onclick="switchTab('cart')">
+            <span>🛒</span>
+            <span class="tab-label">Cart</span>
+        </div>
+        <div class="tab" onclick="switchTab('account')">
+            <span>👤</span>
+            <span class="tab-label">Account</span>
+        </div>
+    </div>
+
+    <script>
+        // Product data
+        const allProducts = [
+            { name: 'Trendy Summer Tee', price: '$2.99', originalPrice: '$14.99', emoji: '👕', discount: '80%', rating: '4.8', sold: false, shipping: true },
+            { name: 'Casual Denim Jacket', price: '$4.49', originalPrice: '$22.99', emoji: '🧥', discount: '80%', rating: '4.9', sold: false, shipping: true },
+            { name: 'Floral Dress', price: '$5.99', originalPrice: '$29.99', emoji: '👗', discount: '80%', rating: '4.7', sold: false, shipping: true },
+            { name: 'Black Skinny Jeans', price: '$3.99', originalPrice: '$19.99', emoji: '👖', discount: '80%', rating: '4.6', sold: false, shipping: true },
+            { name: 'Comfy Hoodie', price: '$4.99', originalPrice: '$24.99', emoji: '🧥', discount: '80%', rating: '4.9', sold: false, shipping: true },
+            { name: 'Striped Shirt', price: '$2.49', originalPrice: '$12.99', emoji: '👕', discount: '81%', rating: '4.5', sold: true, shipping: false },
+            { name: 'Athletic Shorts', price: '$1.99', originalPrice: '$9.99', emoji: '👖', discount: '80%', rating: '4.4', sold: false, shipping: true },
+            { name: 'Stylish Blazer', price: '$6.99', originalPrice: '$34.99', emoji: '🧥', discount: '80%', rating: '4.8', sold: false, shipping: true },
+            { name: 'T-Shirt Bundle', price: '$4.99', originalPrice: '$24.99', emoji: '👕', discount: '80%', rating: '4.7', sold: false, shipping: true },
+            { name: 'Elegant Maxi Dress', price: '$7.99', originalPrice: '$39.99', emoji: '👗', discount: '80%', rating: '4.9', sold: false, shipping: true },
+            { name: 'Cozy Cardigan', price: '$5.49', originalPrice: '$27.49', emoji: '🧥', discount: '80%', rating: '4.6', sold: false, shipping: true },
+            { name: 'Vintage Wash Jeans', price: '$3.49', originalPrice: '$17.49', emoji: '👖', discount: '80%', rating: '4.8', sold: false, shipping: true },
+            { name: 'Polo Shirt', price: '$2.99', originalPrice: '$14.99', emoji: '👕', discount: '80%', rating: '4.5', sold: false, shipping: true },
+            { name: 'Summer Sundress', price: '$5.99', originalPrice: '$29.99', emoji: '👗', discount: '80%', rating: '4.7', sold: false, shipping: true },
+            { name: 'Wool Overcoat', price: '$8.99', originalPrice: '$44.99', emoji: '🧥', discount: '80%', rating: '4.9', sold: false, shipping: true },
+            { name: 'Chino Pants', price: '$3.99', originalPrice: '$19.99', emoji: '👖', discount: '80%', rating: '4.6', sold: false, shipping: true },
+        ];
+
+        let displayedProducts = [...allProducts];
+        let currentCategory = 'all';
+
+        // Initialize
+        loadProducts();
+        startTimer();
+
+        function loadProducts() {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+
+            displayedProducts.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-image">
+                        <span class="product-image-emoji">${product.emoji}</span>
+                        <div class="discount-badge">${product.discount} OFF</div>
+                        ${product.sold ? '<div class="sold-out">SOLD OUT</div>' : ''}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-price">${product.price}</div>
+                        <div class="original-price">${product.originalPrice}</div>
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-rating">⭐ ${product.rating} (${Math.floor(Math.random() * 500 + 50)})</div>
+                        ${product.shipping ? '<div class="shipping-badge">FREE SHIPPING</div>' : ''}
+                    </div>
+                `;
+                card.onclick = () => addToCart(product.name);
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCategory(category) {
+            currentCategory = category;
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            displayedProducts = category === 'all' ? [...allProducts] : allProducts.slice(0, 8);
+            loadProducts();
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.closest('.tab').classList.add('active');
+            
+            if (tab === 'cart') {
+                alert('Shopping Cart - You have items ready to checkout!');
+            } else if (tab === 'explore') {
+                alert('Explore more categories');
+            } else if (tab === 'account') {
+                alert('Account settings & orders');
+            }
+        }
+
+        function addToCart(productName) {
+            alert(`✅ ${productName} added to cart!\n\n💰 Use code: SAVE10 for 10% off`);
+        }
+
+        function startTimer() {
+            const timerEl = document.getElementById('timer');
+            let hours = 23, minutes = 45, seconds = 32;
+
+            setInterval(() => {
+                seconds--;
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                    if (minutes < 0) {
+                        minutes = 59;
+                        hours--;
+                        if (hours < 0) {
+                            hours = 23;
+                        }
+                    }
+                }
+                timerEl.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        // Infinite scroll
+        window.addEventListener('scroll', () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
+                const loadingIndicator = document.getElementById('loadingIndicator');
+                loadingIndicator.style.display = 'block';
+                
+                setTimeout(() => {
+                    const newProducts = [...allProducts].slice(0, 4);
+                    displayedProducts.push(...newProducts);
+                    const grid = document.getElementById('productsGrid');
+                    
+                    newProducts.forEach(product => {
+                        const card = document.createElement('div');
+                        card.className = 'product-card';
+                        card.innerHTML = `
+                            <div class="product-image">
+                                <span class="product-image-emoji">${product.emoji}</span>
+                                <div class="discount-badge">${product.discount} OFF</div>
+                                ${product.sold ? '<div class="sold-out">SOLD OUT</div>' : ''}
+                            </div>
+                            <div class="product-info">
+                                <div class="product-price">${product.price}</div>
+                                <div class="original-price">${product.originalPrice}</div>
+                                <div class="product-name">${product.name}</div>
+                                <div class="product-rating">⭐ ${product.rating} (${Math.floor(Math.random() * 500 + 50)})</div>
+                                ${product.shipping ? '<div class="shipping-badge">FREE SHIPPING</div>' : ''}
+                            </div>
+                        `;
+                        card.onclick = () => addToCart(product.name);
+                        grid.appendChild(card);
+                    });
+                    
+                    loadingIndicator.style.display = 'none';
+                }, 800);
+            }
+        });
+    </script>
+</body>
+</html>
