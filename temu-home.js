@@ -483,3 +483,195 @@ function switchTab(tab) {
 function showAbout() {
     alert('StyleMatch - Your Personal Style Advisor\n\n📷 Take a selfie\n🔍 Get analyzed\n👔 Receive recommendations\n\nNo purchases needed - just style advice!');
 }
+// Fun Enhancements for Enjoyment
+const funTips = [
+    "💡 Pro tip: Earth tones look amazing on warm undertones!",
+    "🎨 Fun fact: Your style is as unique as your fingerprint!",
+    "🌟 Did you know? Colors can affect your mood - choose wisely!",
+    "👑 Style secret: Accessories make any outfit 10x better!",
+    "🎭 Mix it up! Try a color you never thought you'd wear!",
+    "✨ Confidence is the best accessory you can wear!",
+    "🎪 Fashion is art you can wear on your body!",
+    "🌈 Your personal style tells your story to the world!",
+    "👗 Every day is a fashion show and the world is your runway!",
+    "🎨 Color psychology: Blue = trustworthy, Red = confident!"
+];
+
+let tipInterval;
+
+// Start showing random tips periodically
+function startFunTips() {
+    tipInterval = setInterval(showRandomTip, 15000); // Every 15 seconds
+}
+
+// Stop tips when user interacts
+function stopFunTips() {
+    clearInterval(tipInterval);
+}
+
+function showRandomTip() {
+    const tip = funTips[Math.floor(Math.random() * funTips.length)];
+    showTipNotification(tip);
+}
+
+function showTipNotification(message) {
+    // Remove existing tip
+    const existingTip = document.querySelector('.fun-tip');
+    if (existingTip) {
+        existingTip.remove();
+    }
+
+    // Create new tip
+    const tipDiv = document.createElement('div');
+    tipDiv.className = 'fun-tip';
+    tipDiv.textContent = message;
+    document.body.appendChild(tipDiv);
+
+    // Remove after 5 seconds
+    setTimeout(() => {
+        if (tipDiv.parentNode) {
+            tipDiv.remove();
+        }
+    }, 5000);
+}
+
+// Celebration effect when recommendations are generated
+function celebrateRecommendations() {
+    createConfetti();
+    showTipNotification("🎉 Amazing recommendations just for you!");
+}
+
+function createConfetti() {
+    const celebration = document.createElement('div');
+    celebration.className = 'celebration';
+
+    for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.animationDelay = Math.random() * 3 + 's';
+        confetti.style.background = ['#ff6b35', '#f7931e', '#ffd23f', '#667eea', '#764ba2'][Math.floor(Math.random() * 5)];
+        celebration.appendChild(confetti);
+    }
+
+    document.body.appendChild(celebration);
+
+    setTimeout(() => {
+        if (celebration.parentNode) {
+            celebration.remove();
+        }
+    }, 4000);
+}
+
+// Enhanced gamification with more rewards
+function enhancedGamification(action) {
+    const rewards = {
+        'photo': { emoji: '📸', message: 'Photo pro! +10 style points!', points: 10 },
+        'recommendations': { emoji: '🎯', message: 'Style master! +25 fashion points!', points: 25 },
+        'category': { emoji: '🏷️', message: 'Category explorer! +5 discovery points!', points: 5 },
+        'favorite': { emoji: '❤️', message: 'Fashion favorite! +15 love points!', points: 15 }
+    };
+
+    if (rewards[action]) {
+        showTipNotification(`${rewards[action].emoji} ${rewards[action].message}`);
+        // Could add point system here
+    }
+}
+
+// Add click effects to product cards
+function addCardInteractions() {
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.product-card')) {
+            const card = e.target.closest('.product-card');
+            card.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                card.style.transform = '';
+            }, 150);
+
+            // Add heart animation for favorites
+            if (Math.random() > 0.7) { // 30% chance
+                showTipNotification('💖 This outfit would look amazing on you!');
+            }
+        }
+    });
+}
+
+// Initialize fun features
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Fashion Finds initialized with fun features!');
+    startFunTips();
+    addCardInteractions();
+
+    // Add click tracking for gamification
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.category-btn')) {
+            enhancedGamification('category');
+        }
+    });
+});
+
+// Enhanced photo capture with fun feedback
+function capturePhoto() {
+    const video = document.getElementById('cameraVideo');
+    const canvas = document.getElementById('captureCanvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    ctx.drawImage(video, 0, 0);
+
+    const photoData = canvas.toDataURL('image/jpeg');
+    userPhotoData = photoData;
+
+    // Stop video
+    if (video.srcObject) {
+        video.srcObject.getTracks().forEach(track => track.stop());
+    }
+
+    closeCamera();
+    enhancedGamification('photo');
+    analyzePhoto(photoData);
+}
+
+// Enhanced recommendations with celebration
+function generateRecommendations() {
+    if (!userProfile) {
+        alert('Please take a photo first to get personalized recommendations! 📷');
+        return;
+    }
+
+    closeAnalysis();
+
+    // Show loading state
+    document.getElementById('loadingIndicator').style.display = 'block';
+    document.getElementById('productsGrid').style.display = 'none';
+    document.getElementById('recommendationsSection').style.display = 'none';
+
+    // Simulate API call with fun messages
+    const loadingMessages = [
+        'Analyzing your style... 🎨',
+        'Finding perfect matches... 👗',
+        'Curating your fashion finds... ✨',
+        'Almost ready for fashion magic! 🎉'
+    ];
+
+    let messageIndex = 0;
+    const messageInterval = setInterval(() => {
+        const loadingText = document.querySelector('.loading');
+        if (loadingText) {
+            loadingText.textContent = loadingMessages[messageIndex % loadingMessages.length];
+        }
+        messageIndex++;
+    }, 500);
+
+    // Simulate API call
+    setTimeout(() => {
+        clearInterval(messageInterval);
+        recommendedItems = getRecommendations(userProfile);
+        displayRecommendations();
+        document.getElementById('loadingIndicator').style.display = 'none';
+        document.getElementById('productsGrid').style.display = 'grid';
+        celebrateRecommendations();
+        enhancedGamification('recommendations');
+    }, 2000);
+}

@@ -107,14 +107,7 @@ header {
     background: rgba(255,255,255,0.3);
 }
 
-/* Gamification Section */
-.gamification {
-    padding: 12px 16px;
-    margin-bottom: 16px;
-    display: flex;
-    gap: 8px;
-}
-
+/* Enhanced Animations and Interactions */
 .game-card {
     flex: 1;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -123,21 +116,56 @@ header {
     border-radius: 8px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: all 0.3s ease;
     font-size: 12px;
+    position: relative;
+    overflow: hidden;
+    animation: float 3s ease-in-out infinite;
+}
+
+.game-card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.game-card:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.game-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
 }
 
 .game-card:active {
-    transform: scale(0.95);
+    transform: scale(0.95) translateY(-2px);
 }
 
-.game-icon {
-    font-size: 24px;
-    margin-bottom: 4px;
+.game-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.5s;
+    opacity: 0;
 }
 
-.game-text {
-    font-weight: bold;
+.game-card:hover::before {
+    opacity: 1;
+    animation: shimmer 1.5s ease-in-out;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
 }
 
 /* Category Scroll */
@@ -161,17 +189,40 @@ header {
     border-radius: 20px;
     cursor: pointer;
     font-size: 13px;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .category-btn.active {
-    background: #e1306c;
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
     color: white;
     font-weight: bold;
+    animation: bounceIn 0.5s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
 }
 
 .category-btn:hover {
-    background: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.category-btn:active {
+    transform: translateY(0) scale(0.98);
+    animation: bounce 0.2s;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-4px); }
+    60% { transform: translateY(-2px); }
 }
 
 /* Flash Sale Banner */
@@ -210,15 +261,37 @@ header {
 
 .product-card {
     background: white;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.2s;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: relative;
+    transform: translateY(0);
+}
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
 .product-card:active {
-    transform: scale(0.98);
+    transform: scale(0.98) translateY(-4px);
+}
+
+.product-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,215,0,0.1), transparent);
+    transition: left 0.5s;
+}
+
+.product-card:hover::after {
+    left: 100%;
 }
 
 .product-image {
@@ -354,35 +427,129 @@ header {
     font-weight: bold;
 }
 
-/* Loading Indicator */
+/* Enhanced Loading Indicator */
 .loading {
     text-align: center;
-    padding: 20px;
-    color: #999;
-    font-size: 12px;
+    padding: 30px 20px;
+    color: #666;
+    font-size: 14px;
+    position: relative;
+}
+
+.loading::before {
+    content: '🎨';
+    font-size: 32px;
+    display: block;
+    margin-bottom: 10px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .spinner {
     display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: #e1306c;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
     border-radius: 50%;
-    animation: bounce 1.4s infinite ease-in-out both;
-    margin-right: 4px;
+    animation: bounceEnhanced 1.4s infinite ease-in-out both;
+    margin-right: 6px;
+    box-shadow: 0 2px 4px rgba(255, 107, 53, 0.3);
 }
 
 .spinner:nth-child(2) {
-    animation-delay: -0.2s;
+    animation-delay: -0.16s;
 }
 
 .spinner:nth-child(3) {
-    animation-delay: -0.4s;
+    animation-delay: -0.32s;
 }
 
-@keyframes bounce {
-    0%, 80%, 100% { opacity: 0.3; }
-    40% { opacity: 1; }
+@keyframes bounceEnhanced {
+    0%, 80%, 100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Celebration Effects */
+.celebration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ff6b35;
+    animation: fall 3s linear infinite;
+}
+
+.confetti:nth-child(odd) {
+    background: #f7931e;
+    animation-duration: 2.5s;
+}
+
+.confetti:nth-child(3n) {
+    background: #ffd23f;
+    animation-duration: 3.5s;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Fun Tips Popup */
+.fun-tip {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    font-size: 14px;
+    max-width: 250px;
+    animation: slideIn 0.5s ease-out;
+    z-index: 100;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.fun-tip::before {
+    content: '💡';
+    margin-right: 8px;
 }
 
 @media (max-width: 480px) {
