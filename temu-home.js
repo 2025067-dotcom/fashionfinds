@@ -404,7 +404,10 @@ function displayRecommendations() {
             <div class="product-image">
                 <div class="try-on-container">
                     <img src="${userPhotoData}" alt="Your photo" class="try-on-background">
-                    <img src="${item.image}" alt="${item.name}" class="try-on-clothing">
+                    <img src="${item.image}" alt="${item.name}" class="try-on-clothing try-on-hidden">
+                    <div class="try-on-toggle" onclick="toggleTryOn(this)">
+                        👕 Try On
+                    </div>
                 </div>
                 <div class="recommendation-badge">✓ RECOMMENDED</div>
             </div>
@@ -412,7 +415,7 @@ function displayRecommendations() {
                 <div class="product-name">${item.name}</div>
                 <div class="product-rating">⭐ ${item.rating} ✓ Match ${item.matchScore}%</div>
                 <div class="match-score">Perfect for your style!</div>
-                <div style="margin-top: 8px; font-size: 11px; color: #999;">
+                <div style="margin-top: 8px; font-size: 11px; color: #cccccc;">
                     ${item.category.charAt(0).toUpperCase() + item.category.slice(1)} • ${item.season}
                 </div>
             </div>
@@ -450,7 +453,10 @@ function displayFilteredRecommendations(items) {
             <div class="product-image">
                 <div class="try-on-container">
                     <img src="${userPhotoData}" alt="Your photo" class="try-on-background">
-                    <img src="${item.image}" alt="${item.name}" class="try-on-clothing">
+                    <img src="${item.image}" alt="${item.name}" class="try-on-clothing try-on-hidden">
+                    <div class="try-on-toggle" onclick="toggleTryOn(this)">
+                        👕 Try On
+                    </div>
                 </div>
                 <div class="recommendation-badge">✓ RECOMMENDED</div>
             </div>
@@ -674,4 +680,22 @@ function generateRecommendations() {
         celebrateRecommendations();
         enhancedGamification('recommendations');
     }, 2000);
+}
+
+// Virtual try-on toggle function
+function toggleTryOn(button) {
+    const container = button.closest('.try-on-container');
+    const clothing = container.querySelector('.try-on-clothing');
+    
+    if (clothing.classList.contains('try-on-hidden')) {
+        clothing.classList.remove('try-on-hidden');
+        button.textContent = '👕 Remove';
+        button.style.background = '#ff6b35';
+        showTipNotification('👗 Virtual try-on activated!');
+    } else {
+        clothing.classList.add('try-on-hidden');
+        button.textContent = '👕 Try On';
+        button.style.background = '#333';
+        showTipNotification('👀 Try-on removed');
+    }
 }
