@@ -1,4 +1,4 @@
-// Clothing recommendation database with real images for kids
+// Clothing recommendation database with real images for kids and adults
 const clothingDatabase = [
     // Kids' Casual Wear
     { id: 1, name: 'Fun T-Shirt', category: 'kids-casual', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop', colors: ['blue', 'red', 'yellow'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'casual', rating: 4.8 },
@@ -39,6 +39,38 @@ const clothingDatabase = [
     { id: 28, name: 'Art Smock', category: 'kids-school', image: 'https://images.unsplash.com/photo-1551028719-00167b16ebc5?w=300&h=300&fit=crop', colors: ['white', 'colorful'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'school', rating: 4.5 },
     { id: 29, name: 'PE Shorts', category: 'kids-school', image: 'https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?w=300&h=300&fit=crop', colors: ['blue', 'red', 'black'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'school', rating: 4.7 },
     { id: 30, name: 'School Sweater', category: 'kids-school', image: 'https://images.unsplash.com/photo-1556821552-3f29a0bbf31e?w=300&h=300&fit=crop', colors: ['navy', 'gray', 'green'], skinTones: ['any'], bodyType: 'any', season: 'winter', style: 'school', rating: 4.8 },
+
+    // Adult Casual Wear
+    { id: 31, name: 'Classic T-Shirt', category: 'adult-casual', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop', colors: ['white', 'black', 'navy'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'casual', rating: 4.7 },
+    { id: 32, name: 'Casual Blouse', category: 'adult-casual', image: 'https://images.unsplash.com/photo-1551028719-00167b16ebc5?w=300&h=300&fit=crop', colors: ['white', 'cream', 'light blue'], skinTones: ['fair', 'medium'], bodyType: 'any', season: 'all', style: 'casual', rating: 4.6 },
+    { id: 33, name: 'Denim Jacket', category: 'adult-casual', image: 'https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=300&h=300&fit=crop', colors: ['blue', 'black', 'gray'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'casual', rating: 4.8 },
+    { id: 34, name: 'Chinos', category: 'adult-casual', image: 'https://images.unsplash.com/photo-1542272604-787c62d465d1?w=300&h=300&fit=crop', colors: ['khaki', 'navy', 'gray'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'casual', rating: 4.7 },
+    { id: 35, name: 'Sweater', category: 'adult-casual', image: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=300&h=300&fit=crop', colors: ['gray', 'navy', 'burgundy'], skinTones: ['any'], bodyType: 'any', season: 'winter', style: 'casual', rating: 4.8 },
+    { id: 36, name: 'Casual Dress', category: 'adult-casual', image: 'https://images.unsplash.com/photo-1595777707802-221b3bed854d?w=300&h=300&fit=crop', colors: ['black', 'navy', 'floral'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'casual', rating: 4.6 },
+
+    // Adult Formal Wear
+    { id: 37, name: 'Business Suit', category: 'adult-formal', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', colors: ['black', 'navy', 'gray'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'formal', rating: 4.9 },
+    { id: 38, name: 'Formal Shirt', category: 'adult-formal', image: 'https://images.unsplash.com/photo-1618183479302-1abc8d78ea50?w=300&h=300&fit=crop', colors: ['white', 'light blue', 'pink'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'formal', rating: 4.7 },
+    { id: 39, name: 'Dress Pants', category: 'adult-formal', image: 'https://images.unsplash.com/photo-1542272604-787c62d465d1?w=300&h=300&fit=crop', colors: ['black', 'gray', 'navy'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'formal', rating: 4.8 },
+    { id: 40, name: 'Blazer', category: 'adult-formal', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', colors: ['black', 'navy', 'gray'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'formal', rating: 4.9 },
+    { id: 41, name: 'Formal Dress', category: 'adult-formal', image: 'https://images.unsplash.com/photo-1595777707802-221b3bed854d?w=300&h=300&fit=crop', colors: ['black', 'navy', 'emerald'], skinTones: ['fair', 'medium', 'dark'], bodyType: 'any', season: 'all', style: 'formal', rating: 4.9 },
+    { id: 42, name: 'Tie', category: 'adult-formal', image: 'https://images.unsplash.com/photo-1589756823695-278bc923f962?w=300&h=300&fit=crop', colors: ['red', 'blue', 'patterned'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'formal', rating: 4.6 },
+
+    // Adult Sporty
+    { id: 43, name: 'Running Shoes', category: 'adult-sporty', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=300&fit=crop', colors: ['black', 'white', 'blue'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'sporty', rating: 4.8 },
+    { id: 44, name: 'Athletic Shorts', category: 'adult-sporty', image: 'https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?w=300&h=300&fit=crop', colors: ['black', 'navy', 'gray'], skinTones: ['any'], bodyType: 'athletic', season: 'summer', style: 'sporty', rating: 4.7 },
+    { id: 45, name: 'Sports Bra', category: 'adult-sporty', image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop', colors: ['black', 'pink', 'blue'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'sporty', rating: 4.6 },
+    { id: 46, name: 'Gym Tank', category: 'adult-sporty', image: 'https://images.unsplash.com/photo-1522075782050-dbb8a36ba58d?w=300&h=300&fit=crop', colors: ['black', 'white', 'neon'], skinTones: ['any'], bodyType: 'athletic', season: 'summer', style: 'sporty', rating: 4.7 },
+    { id: 47, name: 'Yoga Pants', category: 'adult-sporty', image: 'https://images.unsplash.com/photo-1506629082632-401d5e49ab0e?w=300&h=300&fit=crop', colors: ['black', 'navy', 'gray'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'sporty', rating: 4.8 },
+    { id: 48, name: 'Track Jacket', category: 'adult-sporty', image: 'https://images.unsplash.com/photo-1556821552-3f29a0bbf31e?w=300&h=300&fit=crop', colors: ['black', 'blue', 'red'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'sporty', rating: 4.7 },
+
+    // Adult Accessories
+    { id: 49, name: 'Leather Belt', category: 'adult-accessories', image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=300&h=300&fit=crop', colors: ['black', 'brown', 'tan'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'any', rating: 4.7 },
+    { id: 50, name: 'Watch', category: 'adult-accessories', image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=300&h=300&fit=crop', colors: ['silver', 'gold', 'black'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'formal', rating: 4.8 },
+    { id: 51, name: 'Elegant Scarf', category: 'adult-accessories', image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300&h=300&fit=crop', colors: ['black', 'navy', 'burgundy'], skinTones: ['any'], bodyType: 'any', season: 'winter', style: 'elegant', rating: 4.6 },
+    { id: 52, name: 'Statement Necklace', category: 'adult-accessories', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&h=300&fit=crop', colors: ['gold', 'silver'], skinTones: ['fair', 'medium'], bodyType: 'any', season: 'all', style: 'elegant', rating: 4.8 },
+    { id: 53, name: 'Briefcase', category: 'adult-accessories', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop', colors: ['black', 'brown'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'professional', rating: 4.7 },
+    { id: 54, name: 'Sunglasses', category: 'adult-accessories', image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300&h=300&fit=crop', colors: ['black', 'tortoise'], skinTones: ['any'], bodyType: 'any', season: 'summer', style: 'casual', rating: 4.6 },
 ];
 
 let userProfile = null;
@@ -48,7 +80,7 @@ let userPhotoData = null;
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('KidStyle initialized');
+    console.log('Fashion Finds initialized');
 });
 
 // Camera Functions
