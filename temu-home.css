@@ -30,7 +30,7 @@ header {
     gap: 10px;
     font-size: 24px;
     font-weight: bold;
-    color: #e1306c;
+    color: #ff6b35;
 }
 
 .header-center {
@@ -68,7 +68,7 @@ header {
 /* Top Banner Section */
 .banner-section {
     padding: 12px 16px;
-    background: linear-gradient(135deg, #e1306c 0%, #f77737 100%);
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd23f 100%);
     color: white;
     margin-bottom: 16px;
 }

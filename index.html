@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClotheMu - Super Deals on Fashion</title>
+    <title>KidStyle - Fun Fashion for Kids</title>
     <link rel="stylesheet" href="temu-home.css">
     <script async src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script async src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
@@ -13,10 +13,10 @@
     <!-- Header -->
     <header>
         <div class="header-left">
-            👗 StyleMatch
+            👕 KidStyle
         </div>
         <div class="header-center">
-            <input type="text" class="search-bar" placeholder="Search style tips...">
+            <input type="text" class="search-bar" placeholder="Search fun outfits...">
         </div>
         <div class="header-right">
             <button class="icon-btn" onclick="showAbout()">ℹ️</button>
@@ -68,42 +68,42 @@
 
     <!-- Flash Sale Banner -->
     <div class="flash-sale">
-        <span>⚡ FLASH SALE - UP TO 80% OFF</span>
+        <span>🎉 KIDS' FUN SALE - UP TO 70% OFF</span>
         <div class="flash-timer" id="timer">23:45:32</div>
     </div>
 
     <!-- Gamification Section -->
     <div class="gamification">
-        <div class="game-card" onclick="alert('Daily bonus claimed! +100 coins')">
+        <div class="game-card" onclick="alert('Daily bonus claimed! +50 fun points')">
             <div class="game-icon">🎁</div>
-            <div class="game-text">Daily Bonus</div>
+            <div class="game-text">Daily Fun</div>
         </div>
-        <div class="game-card" onclick="alert('Spin the wheel!')">
+        <div class="game-card" onclick="alert('Spin the wheel for cool prizes!')">
             <div class="game-icon">🎡</div>
             <div class="game-text">Spin & Win</div>
         </div>
-        <div class="game-card" onclick="alert('Complete tasks for rewards!')">
+        <div class="game-card" onclick="alert('Complete fun tasks for awesome rewards!')">
             <div class="game-icon">✅</div>
-            <div class="game-text">Task Center</div>
+            <div class="game-text">Fun Tasks</div>
         </div>
     </div>
 
     <!-- Top Deals Banner -->
     <div class="banner-section">
-        <div class="banner-title">🌟 How StyleMatch Works</div>
+        <div class="banner-title">🌟 How KidStyle Works</div>
         <div class="banners">
             <span class="banner-item">📷 Take Photo</span>
-            <span class="banner-item">🔍 Analyze Style</span>
-            <span class="banner-item">🎯 Get Recommendations</span>
-            <span class="banner-item">👔 Find Perfect Fits</span>
+            <span class="banner-item">🔍 Find Your Style</span>
+            <span class="banner-item">🎯 Get Fun Outfits</span>
+            <span class="banner-item">👕 Dress Like a Star</span>
         </div>
     </div>
 
     <!-- Recommendations Section -->
     <div class="recommendations-intro">
         <div class="intro-card">
-            <h2>Welcome to StyleMatch</h2>
-            <p>Discover clothing recommendations tailored to your unique style and appearance.</p>
+            <h2>Welcome to KidStyle</h2>
+            <p>Discover fun clothing recommendations perfect for kids like you!</p>
             <button class="btn-large" onclick="openCamera()">📷 Take Your Photo</button>
         </div>
     </div>
@@ -111,11 +111,11 @@
     <!-- Categories -->
     <div class="categories">
         <button class="category-btn active" onclick="filterCategory('all')">All</button>
-        <button class="category-btn" onclick="filterCategory('casual')">👕 Casual</button>
-        <button class="category-btn" onclick="filterCategory('formal')">🎩 Formal</button>
-        <button class="category-btn" onclick="filterCategory('sporty')">⚽ Sporty</button>
-        <button class="category-btn" onclick="filterCategory('evening')">✨ Evening</button>
-        <button class="category-btn" onclick="filterCategory('accessories')">👜 Accessories</button>
+        <button class="category-btn" onclick="filterCategory('kids-casual')">👕 Kids' Casual</button>
+        <button class="category-btn" onclick="filterCategory('kids-sporty')">⚽ Kids' Sporty</button>
+        <button class="category-btn" onclick="filterCategory('kids-accessories')">👜 Kids' Accessories</button>
+        <button class="category-btn" onclick="filterCategory('kids-party')">🎉 Kids' Party</button>
+        <button class="category-btn" onclick="filterCategory('kids-school')">📚 Kids' School</button>
     </div>
 
     <!-- Products Container (Now Recommendations) -->

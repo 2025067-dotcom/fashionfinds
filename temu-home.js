@@ -1,34 +1,44 @@
-// Clothing recommendation database with real images
+// Clothing recommendation database with real images for kids
 const clothingDatabase = [
-    // Casual Wear
-    { id: 1, name: 'Casual T-Shirt', category: 'casual', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop', colors: ['blue', 'white', 'black'], skinTones: ['fair', 'medium', 'dark'], bodyType: 'any', season: 'all', style: 'casual', rating: 4.6 },
-    { id: 2, name: 'Trendy Hoodie', category: 'casual', image: 'https://images.unsplash.com/photo-1556821552-3f29a0bbf31e?w=300&h=300&fit=crop', colors: ['gray', 'navy', 'black'], skinTones: ['fair', 'medium', 'dark'], bodyType: 'any', season: 'winter', style: 'casual', rating: 4.8 },
-    { id: 3, name: 'Comfortable Jeans', category: 'casual', image: 'https://images.unsplash.com/photo-1542272604-787c62d465d1?w=300&h=300&fit=crop', colors: ['blue', 'black', 'gray'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'casual', rating: 4.7 },
-    { id: 4, name: 'Polo Shirt', category: 'casual', image: 'https://images.unsplash.com/photo-1618183479302-1abc8d78ea50?w=300&h=300&fit=crop', colors: ['red', 'green', 'navy'], skinTones: ['fair', 'medium'], bodyType: 'athletic', season: 'spring', style: 'casual', rating: 4.5 },
+    // Kids' Casual Wear
+    { id: 1, name: 'Fun T-Shirt', category: 'kids-casual', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop', colors: ['blue', 'red', 'yellow'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'casual', rating: 4.8 },
+    { id: 2, name: 'Cool Hoodie', category: 'kids-casual', image: 'https://images.unsplash.com/photo-1556821552-3f29a0bbf31e?w=300&h=300&fit=crop', colors: ['gray', 'navy', 'pink'], skinTones: ['any'], bodyType: 'any', season: 'winter', style: 'casual', rating: 4.9 },
+    { id: 3, name: 'Play Jeans', category: 'kids-casual', image: 'https://images.unsplash.com/photo-1542272604-787c62d465d1?w=300&h=300&fit=crop', colors: ['blue', 'black', 'gray'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'casual', rating: 4.7 },
+    { id: 4, name: 'Colorful Polo', category: 'kids-casual', image: 'https://images.unsplash.com/photo-1618183479302-1abc8d78ea50?w=300&h=300&fit=crop', colors: ['red', 'green', 'yellow'], skinTones: ['any'], bodyType: 'any', season: 'spring', style: 'casual', rating: 4.6 },
+    { id: 5, name: 'Comfy Shorts', category: 'kids-casual', image: 'https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?w=300&h=300&fit=crop', colors: ['blue', 'green', 'orange'], skinTones: ['any'], bodyType: 'any', season: 'summer', style: 'casual', rating: 4.7 },
+    { id: 6, name: 'Graphic Tee', category: 'kids-casual', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop', colors: ['white', 'black', 'purple'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'casual', rating: 4.8 },
     
-    // Formal Wear
-    { id: 5, name: 'Formal Blazer', category: 'formal', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', colors: ['black', 'navy', 'gray'], skinTones: ['fair', 'medium', 'dark'], bodyType: 'athletic', season: 'all', style: 'formal', rating: 4.9 },
-    { id: 6, name: 'Dress Pants', category: 'formal', image: 'https://images.unsplash.com/photo-1542272604-787c62d465d1?w=300&h=300&fit=crop', colors: ['black', 'gray', 'navy'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'formal', rating: 4.8 },
-    { id: 7, name: 'Formal Dress', category: 'formal', image: 'https://images.unsplash.com/photo-1595777707802-221b3bed854d?w=300&h=300&fit=crop', colors: ['black', 'navy', 'burgundy'], skinTones: ['fair', 'medium', 'dark'], bodyType: 'any', season: 'all', style: 'formal', rating: 4.9 },
-    { id: 8, name: 'Silk Blouse', category: 'formal', image: 'https://images.unsplash.com/photo-1551028719-00167b16ebc5?w=300&h=300&fit=crop', colors: ['white', 'cream', 'gold'], skinTones: ['fair', 'medium'], bodyType: 'any', season: 'all', style: 'formal', rating: 4.7 },
+    // Kids' Sporty
+    { id: 7, name: 'Sports Shorts', category: 'kids-sporty', image: 'https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?w=300&h=300&fit=crop', colors: ['black', 'blue', 'neon'], skinTones: ['any'], bodyType: 'any', season: 'summer', style: 'sporty', rating: 4.8 },
+    { id: 8, name: 'Active Tank', category: 'kids-sporty', image: 'https://images.unsplash.com/photo-1522075782050-dbb8a36ba58d?w=300&h=300&fit=crop', colors: ['neon', 'black', 'white'], skinTones: ['any'], bodyType: 'any', season: 'summer', style: 'sporty', rating: 4.7 },
+    { id: 9, name: 'Gym Jacket', category: 'kids-sporty', image: 'https://images.unsplash.com/photo-1556821552-3f29a0bbf31e?w=300&h=300&fit=crop', colors: ['black', 'blue', 'pink'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'sporty', rating: 4.9 },
+    { id: 10, name: 'Running Pants', category: 'kids-sporty', image: 'https://images.unsplash.com/photo-1506629082632-401d5e49ab0e?w=300&h=300&fit=crop', colors: ['black', 'navy', 'gray'], skinTones: ['any'], bodyType: 'any', season: 'winter', style: 'sporty', rating: 4.6 },
+    { id: 11, name: 'Soccer Jersey', category: 'kids-sporty', image: 'https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=300&h=300&fit=crop', colors: ['red', 'blue', 'green'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'sporty', rating: 4.8 },
+    { id: 12, name: 'Basketball Shorts', category: 'kids-sporty', image: 'https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?w=300&h=300&fit=crop', colors: ['orange', 'black', 'white'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'sporty', rating: 4.7 },
     
-    // Sporty
-    { id: 9, name: 'Athletic Shorts', category: 'sporty', image: 'https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?w=300&h=300&fit=crop', colors: ['black', 'blue', 'neon'], skinTones: ['any'], bodyType: 'athletic', season: 'summer', style: 'sporty', rating: 4.6 },
-    { id: 10, name: 'Sports Tank', category: 'sporty', image: 'https://images.unsplash.com/photo-1522075782050-dbb8a36ba58d?w=300&h=300&fit=crop', colors: ['neon', 'black', 'white'], skinTones: ['dark', 'medium'], bodyType: 'athletic', season: 'summer', style: 'sporty', rating: 4.7 },
-    { id: 11, name: 'Gym Jacket', category: 'sporty', image: 'https://images.unsplash.com/photo-1556821552-3f29a0bbf31e?w=300&h=300&fit=crop', colors: ['black', 'blue', 'gray'], skinTones: ['any'], bodyType: 'athletic', season: 'all', style: 'sporty', rating: 4.8 },
-    { id: 12, name: 'Running Tights', category: 'sporty', image: 'https://images.unsplash.com/photo-1506629082632-401d5e49ab0e?w=300&h=300&fit=crop', colors: ['black', 'navy'], skinTones: ['any'], bodyType: 'athletic', season: 'winter', style: 'sporty', rating: 4.5 },
+    // Kids' Accessories
+    { id: 13, name: 'Fun Scarf', category: 'kids-accessories', image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300&h=300&fit=crop', colors: ['all'], skinTones: ['any'], bodyType: 'any', season: 'winter', style: 'any', rating: 4.6 },
+    { id: 14, name: 'Cool Belt', category: 'kids-accessories', image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=300&h=300&fit=crop', colors: ['black', 'brown', 'colorful'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'any', rating: 4.7 },
+    { id: 15, name: 'Playful Necklace', category: 'kids-accessories', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&h=300&fit=crop', colors: ['gold', 'silver', 'colorful'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'fun', rating: 4.8 },
+    { id: 16, name: 'Baseball Cap', category: 'kids-accessories', image: 'https://images.unsplash.com/photo-1621293954387-db3e15a37e72?w=300&h=300&fit=crop', colors: ['black', 'navy', 'red'], skinTones: ['any'], bodyType: 'any', season: 'summer', style: 'casual', rating: 4.5 },
+    { id: 17, name: 'Sunglasses', category: 'kids-accessories', image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300&h=300&fit=crop', colors: ['black', 'colorful'], skinTones: ['any'], bodyType: 'any', season: 'summer', style: 'cool', rating: 4.7 },
+    { id: 18, name: 'Backpack', category: 'kids-accessories', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop', colors: ['blue', 'red', 'green'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'school', rating: 4.9 },
     
-    // Evening Wear
-    { id: 13, name: 'Elegant Gown', category: 'evening', image: 'https://images.unsplash.com/photo-1595777707802-221b3bed854d?w=300&h=300&fit=crop', colors: ['gold', 'silver', 'black'], skinTones: ['fair', 'medium', 'dark'], bodyType: 'any', season: 'all', style: 'elegant', rating: 4.9 },
-    { id: 14, name: 'Evening Dress', category: 'evening', image: 'https://images.unsplash.com/photo-1545148e16d5-c5d688e6e441?w=300&h=300&fit=crop', colors: ['red', 'purple', 'emerald'], skinTones: ['fair', 'medium', 'dark'], bodyType: 'any', season: 'all', style: 'elegant', rating: 4.8 },
-    { id: 15, name: 'Cocktail Top', category: 'evening', image: 'https://images.unsplash.com/photo-1551028719-00167b16ebc5?w=300&h=300&fit=crop', colors: ['black', 'silver', 'gold'], skinTones: ['fair', 'medium'], bodyType: 'any', season: 'all', style: 'elegant', rating: 4.7 },
-    { id: 16, name: 'Sequin Jacket', category: 'evening', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', colors: ['gold', 'silver', 'black'], skinTones: ['dark', 'medium'], bodyType: 'any', season: 'all', style: 'elegant', rating: 4.8 },
+    // Kids' Party
+    { id: 19, name: 'Party Dress', category: 'kids-party', image: 'https://images.unsplash.com/photo-1595777707802-221b3bed854d?w=300&h=300&fit=crop', colors: ['pink', 'purple', 'gold'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'party', rating: 4.9 },
+    { id: 20, name: 'Fancy Shirt', category: 'kids-party', image: 'https://images.unsplash.com/photo-1618183479302-1abc8d78ea50?w=300&h=300&fit=crop', colors: ['white', 'blue', 'red'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'party', rating: 4.8 },
+    { id: 21, name: 'Sparkly Top', category: 'kids-party', image: 'https://images.unsplash.com/photo-1551028719-00167b16ebc5?w=300&h=300&fit=crop', colors: ['silver', 'gold', 'rainbow'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'party', rating: 4.7 },
+    { id: 22, name: 'Party Pants', category: 'kids-party', image: 'https://images.unsplash.com/photo-1542272604-787c62d465d1?w=300&h=300&fit=crop', colors: ['black', 'navy', 'colorful'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'party', rating: 4.6 },
+    { id: 23, name: 'Birthday Outfit', category: 'kids-party', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop', colors: ['bright', 'colorful'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'party', rating: 4.8 },
+    { id: 24, name: 'Holiday Dress', category: 'kids-party', image: 'https://images.unsplash.com/photo-1595777707802-221b3bed854d?w=300&h=300&fit=crop', colors: ['red', 'green', 'gold'], skinTones: ['any'], bodyType: 'any', season: 'winter', style: 'party', rating: 4.9 },
     
-    // Accessories
-    { id: 17, name: 'Classic Scarf', category: 'accessories', image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300&h=300&fit=crop', colors: ['all'], skinTones: ['any'], bodyType: 'any', season: 'winter', style: 'any', rating: 4.6 },
-    { id: 18, name: 'Leather Belt', category: 'accessories', image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=300&h=300&fit=crop', colors: ['black', 'brown', 'tan'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'any', rating: 4.7 },
-    { id: 19, name: 'Statement Necklace', category: 'accessories', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&h=300&fit=crop', colors: ['gold', 'silver'], skinTones: ['fair', 'medium'], bodyType: 'any', season: 'all', style: 'elegant', rating: 4.8 },
-    { id: 20, name: 'Casual Cap', category: 'accessories', image: 'https://images.unsplash.com/photo-1621293954387-db3e15a37e72?w=300&h=300&fit=crop', colors: ['black', 'navy', 'tan'], skinTones: ['any'], bodyType: 'any', season: 'summer', style: 'casual', rating: 4.5 },
+    // Kids' School
+    { id: 25, name: 'School Uniform', category: 'kids-school', image: 'https://images.unsplash.com/photo-1618183479302-1abc8d78ea50?w=300&h=300&fit=crop', colors: ['white', 'navy', 'gray'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'school', rating: 4.7 },
+    { id: 26, name: 'Classroom Tee', category: 'kids-school', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop', colors: ['blue', 'green', 'yellow'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'school', rating: 4.6 },
+    { id: 27, name: 'Study Pants', category: 'kids-school', image: 'https://images.unsplash.com/photo-1542272604-787c62d465d1?w=300&h=300&fit=crop', colors: ['khaki', 'black', 'navy'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'school', rating: 4.8 },
+    { id: 28, name: 'Art Smock', category: 'kids-school', image: 'https://images.unsplash.com/photo-1551028719-00167b16ebc5?w=300&h=300&fit=crop', colors: ['white', 'colorful'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'school', rating: 4.5 },
+    { id: 29, name: 'PE Shorts', category: 'kids-school', image: 'https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?w=300&h=300&fit=crop', colors: ['blue', 'red', 'black'], skinTones: ['any'], bodyType: 'any', season: 'all', style: 'school', rating: 4.7 },
+    { id: 30, name: 'School Sweater', category: 'kids-school', image: 'https://images.unsplash.com/photo-1556821552-3f29a0bbf31e?w=300&h=300&fit=crop', colors: ['navy', 'gray', 'green'], skinTones: ['any'], bodyType: 'any', season: 'winter', style: 'school', rating: 4.8 },
 ];
 
 let userProfile = null;
@@ -38,7 +48,7 @@ let userPhotoData = null;
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('StyleMatch initialized');
+    console.log('KidStyle initialized');
 });
 
 // Camera Functions
